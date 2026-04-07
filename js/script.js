@@ -145,26 +145,95 @@
         }, { passive: true });
     }
 
-    // ── Carousel Auto-Slider ─────────────────
+    // ── Carousel Auto-Slider and Drag ────────
     const bannerTrack = document.getElementById('bannerTrack');
     if (bannerTrack) {
         const slides = bannerTrack.querySelectorAll('.carousel-slide');
         let currentSlide = 0;
         const totalSlides = slides.length;
+        let sliderInterval;
+        let isDragging = false;
+        let startX = 0;
+        let endX = 0;
 
-        function moveToNextSlide() {
-            currentSlide++;
-            if (currentSlide >= totalSlides) {
+        function moveToSlide(index) {
+            if (index >= totalSlides) {
                 currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
             }
-            const offset = currentSlide * -100; // Mueve -100% por slide
+            const offset = currentSlide * -100;
             bannerTrack.style.transform = `translateX(${offset}%)`;
         }
 
-        // Deslizar cada 3.5 segundos
-        if(totalSlides > 1){
-            setInterval(moveToNextSlide, 3500);
+        function nextSlide() { moveToSlide(currentSlide + 1); }
+        function prevSlide() { moveToSlide(currentSlide - 1); }
+
+        function startAuto() {
+            if (totalSlides > 1) {
+                clearInterval(sliderInterval);
+                sliderInterval = setInterval(nextSlide, 3500);
+            }
         }
+
+        function stopAuto() {
+            clearInterval(sliderInterval);
+        }
+
+        // Iniciar Slider Automático
+        startAuto();
+
+        // ── Lógica de arrastre (Touch & Mouse Swipe) ──
+        function handleSwipe() {
+            const threshold = 40; // Pixeles mínimos para detectar deslizamiento
+            if (startX - endX > threshold) {
+                nextSlide();
+            } else if (endX - startX > threshold) {
+                prevSlide();
+            }
+        }
+
+        // Eventos táctiles (Celulares y Tablets)
+        bannerTrack.addEventListener('touchstart', (e) => {
+            startX = e.changedTouches[0].screenX;
+            stopAuto();
+        }, { passive: true });
+
+        bannerTrack.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startAuto();
+        }, { passive: true });
+
+        // Eventos de Mouse (Computadora)
+        const container = bannerTrack.parentElement;
+        container.addEventListener('mousedown', (e) => {
+            startX = e.screenX;
+            isDragging = true;
+            stopAuto();
+            container.style.cursor = 'grabbing';
+        });
+
+        window.addEventListener('mouseup', (e) => {
+            if (isDragging) {
+                endX = e.screenX;
+                isDragging = false;
+                handleSwipe();
+                startAuto();
+                container.style.cursor = 'grab';
+            }
+        });
+        
+        // Evitar comportamientos raros al sacar el mouse 
+        window.addEventListener('mouseleave', () => {
+             if (isDragging) {
+                isDragging = false;
+                startAuto();
+                container.style.cursor = 'grab';
+             }
+        });
     }
 
 })();
