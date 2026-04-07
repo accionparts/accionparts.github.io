@@ -1,22 +1,149 @@
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+// ============================================
+// ACCION PARTS — Premium Interactions Engine
+// ============================================
 
-// Smooth scroll for anchors (if any)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
+(function() {
+    'use strict';
+
+    // ── Navbar scroll effect ────────────────
+    const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+
+    function handleNavbarScroll() {
+        const currentScroll = window.scrollY;
+        if (currentScroll > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
         }
+        lastScroll = currentScroll;
+    }
+
+    window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+
+    // ── Mobile hamburger menu ───────────────
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
+
+        // Close menu when a link is clicked
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    // ── Smooth scroll for anchor links ──────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const navHeight = navbar ? navbar.offsetHeight : 0;
+                const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+                window.scrollTo({
+                    top: targetPos,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-});
+
+    // ── AOS Init (with scroll-up replay) ────
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: false,      // re-animate on scroll up!
+            offset: 80,
+            mirror: true,     // animate out when scrolling past
+            anchorPlacement: 'top-bottom'
+        });
+    }
+
+    // ── Stat counter animation ──────────────
+    function animateCounters() {
+        const counters = document.querySelectorAll('.stat-number[data-target]');
+        const speed = 60;
+
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const suffix = counter.getAttribute('data-suffix') || '';
+            let current = 0;
+            const increment = target / speed;
+
+            function updateCounter() {
+                current += increment;
+                if (current < target) {
+                    counter.textContent = Math.ceil(current) + suffix;
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target + suffix;
+                }
+            }
+            updateCounter();
+        });
+    }
+
+    // Observe stats bar for viewport entry
+    const statsBar = document.querySelector('.stats-bar');
+    if (statsBar) {
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        statsObserver.observe(statsBar);
+    }
+
+    // ── Contact form → WhatsApp redirect ────
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const fd = new FormData(contactForm);
+            const name = fd.get('nombre') || '';
+            const company = fd.get('empresa') || '';
+            const city = fd.get('localidad') || '';
+            const message = fd.get('mensaje') || '';
+
+            let waText = `Hola, soy ${name}`;
+            if (company) waText += ` de ${company}`;
+            if (city) waText += ` (${city})`;
+            waText += `. ${message || 'Quiero más información sobre sus productos.'}`;
+
+            const waUrl = `https://wa.me/543755598210?text=${encodeURIComponent(waText)}`;
+            window.open(waUrl, '_blank');
+        });
+    }
+
+    // ── Parallax-like effect on hero ─────────
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+        window.addEventListener('scroll', function() {
+            const scroll = window.scrollY;
+            if (scroll < window.innerHeight) {
+                const heroContent = heroSection.querySelector('.hero-content');
+                if (heroContent) {
+                    heroContent.style.transform = `translateY(${scroll * 0.15}px)`;
+                    heroContent.style.opacity = 1 - (scroll / (window.innerHeight * 0.8));
+                }
+            }
+        }, { passive: true });
+    }
+
+})();

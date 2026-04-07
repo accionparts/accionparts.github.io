@@ -6,45 +6,10 @@
     <title>Mayoristas | Abrir Cuenta de Distribuidor B2B | Accion Parts</title>
     <meta name="description" content="¿Tenés un taller o lubricentro? Unite a nuestra red de clientes mayoristas en Misiones. Mejores precios, stock semanal y logística directa.">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Bebas+Neue&family=Saira+Extra+Condensed:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        .wholesale-hero {
-            padding: 120px 20px 80px;
-            background: linear-gradient(135deg, var(--dark-surface) 0%, var(--dark-bg) 100%);
-            text-align: center;
-        }
-        .form-section {
-            background-color: var(--light-surface);
-            padding: 80px 20px;
-        }
-        .b2b-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--light-bg);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: var(--font-body);
-        }
-    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="logo-container">
             <a href="index.html">
@@ -54,43 +19,57 @@
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="productos.html">Productos</a></li>
-            <li><a href="mayoristas.html" style="color: var(--primary);">Mayoristas</a></li>
+            <li><a href="mayoristas.html" class="active">Mayoristas</a></li>
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
         <a href="https://wa.me/543755598210" class="btn-primary desktop-only">Hablar Asesor</a>
+        <button class="hamburger" aria-label="Menú de navegación">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="mayoristas.html" class="active">Mayoristas</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="https://wa.me/543755598210" class="mobile-wa-btn">WhatsApp</a>
+    </div>
+
+    <!-- Hero -->
     <header class="wholesale-hero dark-section">
         <div class="container" data-aos="fade-down">
             <h1>Soluciones Mayoristas B2B</h1>
-            <h2 style="color: var(--text-light); font-size: 1.5rem;">Potenciamos el crecimiento del rubro automotor en Misiones</h2>
-            <p style="max-width: 700px; margin: 0 auto; margin-top: 20px; color: var(--text-muted);">
-                Abastecemos tu negocio con precios competitivos, stock permanente, y entrega en tu puerta.
-            </p>
+            <h2 style="color: var(--text-muted-light); font-size: clamp(1.1rem, 2vw, 1.5rem); font-style: italic;">Potenciamos el crecimiento del rubro automotor en Misiones</h2>
+            <p>Abastecemos tu negocio con precios competitivos, stock permanente, y entrega en tu puerta.</p>
         </div>
     </header>
 
+    <!-- How to Buy -->
     <section class="light-section">
         <div class="container">
             <h3 class="section-title" data-aos="fade-right">¿Cómo Comprar?</h3>
             <div class="grid diff-grid">
                 <div class="diff-item" data-aos="zoom-in" data-aos-delay="100">
-                    <span class="diff-icon">1</span>
+                    <span class="diff-icon" style="color: var(--primary); font-family: var(--font-heading); font-weight: 700; font-style: italic;">01</span>
                     <h5>Catálogo</h5>
-                    <p>Explorá nuestros productos en la web o pedí archivo PDF.</p>
+                    <p>Explorá nuestros productos en la web o pedí archivo PDF actualizado.</p>
                 </div>
                 <div class="diff-item" data-aos="zoom-in" data-aos-delay="200">
-                    <span class="diff-icon">2</span>
+                    <span class="diff-icon" style="color: var(--primary); font-family: var(--font-heading); font-weight: 700; font-style: italic;">02</span>
                     <h5>Cotización WhatsApp</h5>
-                    <p>Consultá precios y disponibilidad con nuestros asesores.</p>
+                    <p>Consultá precios y disponibilidad con nuestro equipo comercial.</p>
                 </div>
                 <div class="diff-item" data-aos="zoom-in" data-aos-delay="300">
-                    <span class="diff-icon">3</span>
+                    <span class="diff-icon" style="color: var(--primary); font-family: var(--font-heading); font-weight: 700; font-style: italic;">03</span>
                     <h5>Pedido y Pago</h5>
                     <p>Confirmá tu pedido con diversas opciones de pago B2B.</p>
                 </div>
                 <div class="diff-item" data-aos="zoom-in" data-aos-delay="400">
-                    <span class="diff-icon">4</span>
+                    <span class="diff-icon" style="color: var(--primary); font-family: var(--font-heading); font-weight: 700; font-style: italic;">04</span>
                     <h5>Recepción</h5>
                     <p>Recibí tu mercadería gracias a nuestra logística en Misiones.</p>
                 </div>
@@ -98,44 +77,67 @@
         </div>
     </section>
 
+    <!-- B2B Form Section -->
     <section class="form-section">
         <div class="container text-center">
-            <h2 style="color: var(--text-dark); text-align: center; font-style: normal; font-size: 2.5rem; text-transform: uppercase;" data-aos="fade-up">Solicitar Cuenta Mayorista</h2>
+            <h2 style="color: var(--text-dark); text-align: center; font-size: clamp(1.8rem, 3vw, 2.5rem);" data-aos="fade-up">Solicitar Cuenta Mayorista</h2>
             <br>
-            <form action="https://wa.me/543755598210" method="get" target="_blank" class="b2b-form" data-aos="zoom-in" data-aos-delay="200">
-                <!-- Simple redirect form to WA -->
+            <form id="contact-form" class="b2b-form" data-aos="zoom-in" data-aos-delay="200">
                 <div class="form-group">
-                    <label>Nombre del Contacto</label>
-                    <input type="text" placeholder="Ej. Juan Pérez" required>
+                    <label for="nombre">Nombre del Contacto</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
                 </div>
                 <div class="form-group">
-                    <label>Nombre de la Empresa</label>
-                    <input type="text" placeholder="Taller o Casa de Repuestos" required>
+                    <label for="empresa">Nombre de la Empresa</label>
+                    <input type="text" id="empresa" name="empresa" placeholder="Taller o Casa de Repuestos" required>
                 </div>
                 <div class="form-group">
-                    <label>Localidad (Misiones)</label>
-                    <input type="text" placeholder="Ej. Posadas, Oberá..." required>
+                    <label for="localidad">Localidad (Misiones)</label>
+                    <input type="text" id="localidad" name="localidad" placeholder="Ej. Posadas, Oberá..." required>
                 </div>
-                <input type="hidden" name="text" value="Hola, quiero abrir una cuenta mayorista.">
-                <button type="submit" class="btn-primary" style="width: 100%;">Enviar Solicitud por WhatsApp</button>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje (opcional)</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Contanos qué productos te interesan..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary wa-btn" style="width: 100;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Enviar Solicitud por WhatsApp
+                </button>
             </form>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
+        <div class="container grid footer-grid">
+            <div class="footer-col">
+                <h4>Accion Parts</h4>
+                <p>Distribuidor Mayorista en Misiones.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <p><a href="index.html">Inicio</a></p>
+                <p><a href="productos.html">Productos</a></p>
+                <p><a href="mayoristas.html">Mayoristas</a></p>
+                <p><a href="contacto.html">Contacto</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><a href="https://wa.me/543755598210">📱 +54 3755 598210</a></p>
+                <p><a href="mailto:accionparts@gmail.com">📧 accionparts@gmail.com</a></p>
+            </div>
+        </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Accion Parts. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/543755598210" class="wa-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 700,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 50
-        });
-    </script>
     <script src="js/script.js"></script>
 </body>
 </html>

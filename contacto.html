@@ -6,42 +6,10 @@
     <title>Contacto | Pedir Lista de Precios | Accion Parts</title>
     <meta name="description" content="Contactate con Accion Parts en Misiones. Consultá por repuestos, aceites o solicitudes de distribución via WhatsApp o Email.">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Bebas+Neue&family=Saira+Extra+Condensed:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        .contact-hero {
-            padding: 100px 20px;
-            background: var(--dark-bg);
-            text-align: center;
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        @media(max-width: 768px) {
-            .contact-grid { grid-template-columns: 1fr; }
-        }
-        .contact-card {
-            background: var(--light-surface);
-            padding: 40px;
-            border-radius: 8px;
-            text-align: left;
-        }
-        .contact-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        .info-row {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="logo-container">
             <a href="index.html">
@@ -52,63 +20,129 @@
             <li><a href="index.html">Inicio</a></li>
             <li><a href="productos.html">Productos</a></li>
             <li><a href="mayoristas.html">Mayoristas</a></li>
-            <li><a href="contacto.html" style="color: var(--primary);">Contacto</a></li>
+            <li><a href="contacto.html" class="active">Contacto</a></li>
         </ul>
         <a href="https://wa.me/543755598210" class="btn-primary desktop-only">Hablar Asesor</a>
+        <button class="hamburger" aria-label="Menú de navegación">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="mayoristas.html">Mayoristas</a>
+        <a href="contacto.html" class="active">Contacto</a>
+        <a href="https://wa.me/543755598210" class="mobile-wa-btn">WhatsApp</a>
+    </div>
+
+    <!-- Hero -->
     <header class="contact-hero dark-section" data-aos="fade-down">
         <h1>Contactanos</h1>
-        <p style="color: var(--text-muted);">Estamos a disposición para ayudarte a impulsar tu negocio.</p>
+        <p>Estamos a disposición para ayudarte a impulsar tu negocio automotriz.</p>
     </header>
 
+    <!-- Contact Info + Form -->
     <section class="light-section">
-        <div class="container contact-grid">
-            <div class="contact-card" data-aos="fade-right" data-aos-delay="100">
-                <h4>Información Directa</h4>
-                <div class="info-row">
-                    <strong>Whatsapp / Teléfono:</strong> <br>
-                    <a href="https://wa.me/543755598210" style="color: var(--text-dark); text-decoration: none;">+54 3755 598210</a>
+        <div class="container">
+            <h3 class="section-title" data-aos="fade-right">Escribinos</h3>
+            <div class="contact-grid">
+                <!-- Direct Info Card -->
+                <div class="contact-card" data-aos="fade-right" data-aos-delay="100">
+                    <h4>Información Directa</h4>
+                    <div class="info-row">
+                        <strong>WhatsApp / Teléfono:</strong><br>
+                        <a href="https://wa.me/543755598210" style="color: var(--text-dark);">+54 3755 598210</a>
+                    </div>
+                    <div class="info-row">
+                        <strong>Correo Electrónico:</strong><br>
+                        <a href="mailto:accionparts@gmail.com" style="color: var(--text-dark);">accionparts@gmail.com</a>
+                    </div>
+                    <div class="info-row">
+                        <strong>Ubicación:</strong><br>
+                        Oberá, Misiones, Argentina<br>
+                        (Entregas en toda la provincia).
+                    </div>
+                    <br>
+                    <a href="https://wa.me/543755598210" class="btn-primary wa-btn" style="width:100%;">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Enviar mensaje ahora
+                    </a>
                 </div>
-                <div class="info-row">
-                    <strong>Correo Electrónico:</strong> <br>
-                    <a href="mailto:accionparts@gmail.com" style="color: var(--text-dark); text-decoration: none;">accionparts@gmail.com</a>
-                </div>
-                <div class="info-row">
-                    <strong>Ubicación:</strong> <br>
-                    Misiones, Argentina (Entregas en toda la provincia).
-                </div>
-            </div>
 
-            <div class="contact-card" style="background: var(--dark-surface); color: white;" data-aos="fade-left" data-aos-delay="200">
-                <h4 style="color: white;">Nuestras Redes</h4>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">Seguinos para enterarte de nuevos ingresos de mercadería, tips técnicos y promociones exclusivas.</p>
-                <div class="info-row">
-                    📸 <strong>Instagram:</strong> <a href="https://instagram.com/accionparts" style="color: var(--primary); text-decoration: none;">@accionparts</a>
+                <!-- Social / Contact Form Card -->
+                <div class="contact-card dark-contact-card" data-aos="fade-left" data-aos-delay="200">
+                    <h4>Formulario Rápido</h4>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="nombre" style="color: var(--text-muted-light);">Tu Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required
+                                   style="background: var(--surface-container); border-color: rgba(255,255,255,0.1); color: white;">
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa" style="color: var(--text-muted-light);">Empresa / Taller</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu negocio"
+                                   style="background: var(--surface-container); border-color: rgba(255,255,255,0.1); color: white;">
+                        </div>
+                        <div class="form-group">
+                            <label for="localidad" style="color: var(--text-muted-light);">Localidad</label>
+                            <input type="text" id="localidad" name="localidad" placeholder="Ej. Posadas, Oberá..."
+                                   style="background: var(--surface-container); border-color: rgba(255,255,255,0.1); color: white;">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje" style="color: var(--text-muted-light);">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" placeholder="¿En qué podemos ayudarte?"
+                                      style="background: var(--surface-container); border-color: rgba(255,255,255,0.1); color: white;"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width:100%;">Enviar por WhatsApp</button>
+                    </form>
+                    <br>
+                    <div style="text-align: center;">
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;">Seguinos en redes</p>
+                        <div style="display: flex; gap: 16px; justify-content: center;">
+                            <a href="https://instagram.com/accionparts" target="_blank" style="color: var(--primary-light); font-size: 1rem;">📸 @accionparts</a>
+                            <a href="https://facebook.com/accionparts" target="_blank" style="color: var(--primary-light); font-size: 1rem;">📘 Facebook</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="info-row">
-                    📘 <strong>Facebook:</strong> <a href="https://facebook.com/accionparts" style="color: var(--primary); text-decoration: none;">Accion Parts</a>
-                </div>
-                <br>
-                <a href="https://wa.me/543755598210" class="btn-primary">Enviar un mensaje ahora</a>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
+        <div class="container grid footer-grid">
+            <div class="footer-col">
+                <h4>Accion Parts</h4>
+                <p>Distribuidor Mayorista en Misiones.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <p><a href="index.html">Inicio</a></p>
+                <p><a href="productos.html">Productos</a></p>
+                <p><a href="mayoristas.html">Mayoristas</a></p>
+                <p><a href="contacto.html">Contacto</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><a href="https://wa.me/543755598210">📱 +54 3755 598210</a></p>
+                <p><a href="mailto:accionparts@gmail.com">📧 accionparts@gmail.com</a></p>
+            </div>
+        </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Accion Parts. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/543755598210" class="wa-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 700,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 50
-        });
-    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
