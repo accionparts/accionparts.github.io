@@ -66,7 +66,7 @@
             duration: 800,
             easing: 'ease-out-cubic',
             once: false,      // re-animate on scroll up!
-            offset: 80,
+            offset: 60,
             mirror: true,     // animate out when scrolling past
             anchorPlacement: 'top-bottom'
         });
@@ -96,14 +96,13 @@
         });
     }
 
-    // Observe stats bar for viewport entry
+    // Observe stats bar — re-trigger counter every time it enters viewport
     const statsBar = document.querySelector('.stats-bar');
     if (statsBar) {
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     animateCounters();
-                    statsObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.3 });
