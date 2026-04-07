@@ -145,4 +145,26 @@
         }, { passive: true });
     }
 
+    // ── Carousel Auto-Slider ─────────────────
+    const bannerTrack = document.getElementById('bannerTrack');
+    if (bannerTrack) {
+        const slides = bannerTrack.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function moveToNextSlide() {
+            currentSlide++;
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            const offset = currentSlide * -100; // Mueve -100% por slide
+            bannerTrack.style.transform = `translateX(${offset}%)`;
+        }
+
+        // Deslizar cada 3.5 segundos
+        if(totalSlides > 1){
+            setInterval(moveToNextSlide, 3500);
+        }
+    }
+
 })();
