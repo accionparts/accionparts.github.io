@@ -6,6 +6,7 @@
     <title>Contacto | Accion Parts</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         .contact-hero {
             padding: 100px 20px;
@@ -55,14 +56,14 @@
         <a href="https://wa.me/543755598210" class="btn-primary desktop-only">Hablar Asesor</a>
     </nav>
 
-    <header class="contact-hero dark-section">
+    <header class="contact-hero dark-section" data-aos="fade-down">
         <h1>Contactanos</h1>
         <p style="color: var(--text-muted);">Estamos a disposición para ayudarte a impulsar tu negocio.</p>
     </header>
 
     <section class="light-section">
         <div class="container contact-grid">
-            <div class="contact-card">
+            <div class="contact-card" data-aos="fade-right" data-aos-delay="100">
                 <h4>Información Directa</h4>
                 <div class="info-row">
                     <strong>Whatsapp / Teléfono:</strong> <br>
@@ -78,7 +79,7 @@
                 </div>
             </div>
 
-            <div class="contact-card" style="background: var(--dark-surface); color: white;">
+            <div class="contact-card" style="background: var(--dark-surface); color: white;" data-aos="fade-left" data-aos-delay="200">
                 <h4 style="color: white;">Nuestras Redes</h4>
                 <p style="color: var(--text-muted); margin-bottom: 20px;">Seguinos para enterarte de nuevos ingresos de mercadería, tips técnicos y promociones exclusivas.</p>
                 <div class="info-row">
@@ -98,6 +99,15 @@
             <p>&copy; 2026 Accion Parts. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>

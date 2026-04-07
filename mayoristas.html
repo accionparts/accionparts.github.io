@@ -6,6 +6,7 @@
     <title>Clientes Mayoristas | Accion Parts</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         .wholesale-hero {
             padding: 120px 20px 80px;
@@ -59,7 +60,7 @@
     </nav>
 
     <header class="wholesale-hero dark-section">
-        <div class="container">
+        <div class="container" data-aos="fade-down">
             <h1>Soluciones Mayoristas B2B</h1>
             <h2 style="color: var(--text-light); font-size: 1.5rem;">Potenciamos el crecimiento del rubro automotor en Misiones</h2>
             <p style="max-width: 700px; margin: 0 auto; margin-top: 20px; color: var(--text-muted);">
@@ -70,24 +71,24 @@
 
     <section class="light-section">
         <div class="container">
-            <h3 class="section-title">¿Cómo Comprar?</h3>
+            <h3 class="section-title" data-aos="fade-right">¿Cómo Comprar?</h3>
             <div class="grid diff-grid">
-                <div class="diff-item">
+                <div class="diff-item" data-aos="zoom-in" data-aos-delay="100">
                     <span class="diff-icon">1</span>
                     <h5>Catálogo</h5>
                     <p>Explorá nuestros productos en la web o pedí archivo PDF.</p>
                 </div>
-                <div class="diff-item">
+                <div class="diff-item" data-aos="zoom-in" data-aos-delay="200">
                     <span class="diff-icon">2</span>
                     <h5>Cotización WhatsApp</h5>
                     <p>Consultá precios y disponibilidad con nuestros asesores.</p>
                 </div>
-                <div class="diff-item">
+                <div class="diff-item" data-aos="zoom-in" data-aos-delay="300">
                     <span class="diff-icon">3</span>
                     <h5>Pedido y Pago</h5>
                     <p>Confirmá tu pedido con diversas opciones de pago B2B.</p>
                 </div>
-                <div class="diff-item">
+                <div class="diff-item" data-aos="zoom-in" data-aos-delay="400">
                     <span class="diff-icon">4</span>
                     <h5>Recepción</h5>
                     <p>Recibí tu mercadería gracias a nuestra logística en Misiones.</p>
@@ -98,9 +99,9 @@
 
     <section class="form-section">
         <div class="container text-center">
-            <h2 style="color: var(--text-dark); text-align: center; font-style: normal; font-size: 2.5rem; text-transform: uppercase;">Solicitar Cuenta Mayorista</h2>
+            <h2 style="color: var(--text-dark); text-align: center; font-style: normal; font-size: 2.5rem; text-transform: uppercase;" data-aos="fade-up">Solicitar Cuenta Mayorista</h2>
             <br>
-            <form action="https://wa.me/543755598210" method="get" target="_blank" class="b2b-form">
+            <form action="https://wa.me/543755598210" method="get" target="_blank" class="b2b-form" data-aos="zoom-in" data-aos-delay="200">
                 <!-- Simple redirect form to WA -->
                 <div class="form-group">
                     <label>Nombre del Contacto</label>
@@ -125,6 +126,15 @@
             <p>&copy; 2026 Accion Parts. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>

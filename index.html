@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -28,7 +29,7 @@
     </nav>
 
     <header class="hero-section dark-section">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-up">
             <h1>ACCION PARTS</h1>
             <h2>Mayorista de autopartes y lubricantes en Misiones</h2>
             <p>Abastecemos a talleres, casas de repuestos y comercios automotrices con precios mayoristas y entregas en toda la provincia.</p>
@@ -41,29 +42,29 @@
 
     <section class="categories-section light-section">
         <div class="container">
-            <h3 class="section-title">Nuestras Categorías</h3>
+            <h3 class="section-title" data-aos="fade-right">Nuestras Categorías</h3>
             <div class="grid categories-grid">
-                <div class="card dark-card">
+                <div class="card dark-card" data-aos="fade-up" data-aos-delay="100">
                     <h4>Lubricantes</h4>
                     <p>Aceites de motor, transmisión, hidráulicos y grasas.</p>
                 </div>
-                <div class="card dark-card">
+                <div class="card dark-card" data-aos="fade-up" data-aos-delay="200">
                     <h4>Autopartes</h4>
                     <p>Filtros, sistema de frenos, eléctricos y suspensión.</p>
                 </div>
-                <div class="card dark-card">
+                <div class="card dark-card" data-aos="fade-up" data-aos-delay="300">
                     <h4>Iluminación</h4>
                     <p>Kits LED, lámparas halógenas y barras LED de alta potencia.</p>
                 </div>
-                <div class="card dark-card">
+                <div class="card dark-card" data-aos="fade-up" data-aos-delay="100">
                     <h4>Accesorios</h4>
                     <p>Cables, fusibles y conectores profesionales.</p>
                 </div>
-                <div class="card dark-card">
+                <div class="card dark-card" data-aos="fade-up" data-aos-delay="200">
                     <h4>Química</h4>
                     <p>Limpiadores, refrigerantes y líquidos de mantenimiento.</p>
                 </div>
-                <div class="card dark-card">
+                <div class="card dark-card" data-aos="fade-up" data-aos-delay="300">
                     <h4>Herramientas</h4>
                     <p>Equipos de diagnóstico, manuales y utilidades de taller.</p>
                 </div>
@@ -73,24 +74,24 @@
 
     <section class="differentials-section light-section" style="background-color: var(--light-surface);">
         <div class="container">
-            <h3 class="section-title">Construyendo negocios rentables</h3>
+            <h3 class="section-title" data-aos="fade-right">Construyendo negocios rentables</h3>
             <div class="grid diff-grid">
-                <div class="diff-item">
+                <div class="diff-item" data-aos="zoom-in" data-aos-delay="100">
                     <span class="diff-icon">💰</span>
                     <h5>Precios Mayoristas</h5>
                     <p>Márgenes competitivos para tu local.</p>
                 </div>
-                <div class="diff-item">
+                <div class="diff-item" data-aos="zoom-in" data-aos-delay="200">
                     <span class="diff-icon">📦</span>
                     <h5>Stock Constante</h5>
                     <p>Ingresos semanales de mercadería.</p>
                 </div>
-                <div class="diff-item">
+                <div class="diff-item" data-aos="zoom-in" data-aos-delay="300">
                     <span class="diff-icon">🚚</span>
                     <h5>Entrega Provincial</h5>
                     <p>Logística y distribución en todo Misiones.</p>
                 </div>
-                <div class="diff-item">
+                <div class="diff-item" data-aos="zoom-in" data-aos-delay="400">
                     <span class="diff-icon">🤝</span>
                     <h5>Respaldo Técnico</h5>
                     <p>Te asesoramos en tus compras B2B.</p>
@@ -100,7 +101,7 @@
     </section>
 
     <section class="cta-footer dark-section">
-        <div class="cta-content">
+        <div class="cta-content" data-aos="zoom-in">
             <h2>¿Tenés un taller o un lubricentro?</h2>
             <p>Trabajá con marcas confiables que garantizan rotación y calidad. Sumate a nuestra red.</p>
             <a href="https://wa.me/543755598210" class="btn-primary massive-btn">Solicitar lista de precios</a>
@@ -128,6 +129,15 @@
             <p>&copy; 2026 Accion Parts. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
