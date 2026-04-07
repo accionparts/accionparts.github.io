@@ -568,6 +568,163 @@ p {
     border-radius: 2px;
 }
 
+/* ── Promotional Banners ──────────────────── */
+.banners-section {
+    position: relative;
+    z-index: 2;
+}
+
+.banners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+    gap: clamp(20px, 3vw, 40px);
+}
+
+.promo-banner {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+    aspect-ratio: 16/9;
+    background-color: var(--dark-surface);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    transition: all 0.5s var(--ease-out-expo);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.promo-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255,255,255,0.1);
+    z-index: 3;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-out-expo);
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(20px, 4vw, 40px);
+    z-index: 2;
+    transition: background 0.5s ease;
+}
+
+.banner-content {
+    transform: translateY(15px);
+    transition: transform 0.5s var(--ease-out-expo);
+}
+
+.banner-content h3 {
+    color: var(--text-light);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    letter-spacing: 0.02em;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    line-height: 1.1;
+}
+
+.banner-content p {
+    color: rgba(255,255,255,0.85);
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    margin-bottom: 20px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 2px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    width: fit-content;
+}
+
+.badge-primary {
+    background: var(--primary);
+    border-color: var(--primary-light);
+}
+
+.banner-link {
+    display: inline-flex;
+    color: var(--primary-light);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    transition: color 0.3s ease;
+    align-items: center;
+}
+
+.banner-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-light);
+    transition: width 0.3s var(--ease-out-expo);
+}
+
+/* Hover effects */
+@media (hover: hover) {
+    .promo-banner:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+    }
+    .promo-banner:hover .banner-img {
+        transform: scale(1.08);
+    }
+    .promo-banner:hover .banner-overlay {
+        background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(19,110,247,0.3) 60%, transparent 100%);
+    }
+    .promo-banner:hover .banner-content {
+        transform: translateY(0);
+    }
+    .promo-banner:hover .banner-link {
+        color: var(--text-light);
+    }
+    .promo-banner:hover .banner-link::after {
+        width: 100%;
+        background: var(--text-light);
+    }
+}
+
+/* En móviles, siempre mostrar el contenido en su posición final para evitar doble tap en los enlaces */
+@media (max-width: 768px) {
+    .banner-content {
+        transform: translateY(0);
+    }
+    .promo-banner {
+        aspect-ratio: 4/3;
+    }
+}
+
 /* ── Categories Grid ──────────────────────── */
 .categories-section {
     position: relative;
